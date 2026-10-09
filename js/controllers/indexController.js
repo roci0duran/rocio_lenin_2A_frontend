@@ -4,9 +4,9 @@ import {
     crearReserva,
     actualizarReserva,
     eliminarReserva
-} from "../services/reservasService.js";
-import { obtenerClientes } from "../services/clientesService.js";
-import { obtenerVehiculos } from "../services/vehiculosService.js";
+} from "../service/reservasServicie.js";
+import { obtenerClientes } from "../service/clientesService.js";
+import { obtenerVehiculos } from "../service/vehiculosService.js";
 
 const formulario = document.getElementById("formReserva");
 const titulo = document.getElementById("tituloFormulario");
@@ -98,7 +98,6 @@ function leerFormulario() {
     };
     if (idEditando !== null) reserva.estado = campos.estado.value;
     return reserva;
-}
 
 function validar(r) {
     if (!r.id_cliente) return "Selecciona un cliente";
@@ -109,6 +108,10 @@ function validar(r) {
         return "La cantidad de pasajeros debe ser un entero mayor a 0";
     if (!Number.isInteger(r.cantidad_dias) || r.cantidad_dias <= 0)
         return "La cantidad de días debe ser un entero mayor a 0";
+    if (!Number.isInteger(r.cantidad_pasajeros) || r.cantidad_pasajeros >= 6)
+        return "La cantidad de pasajeros debe ser un entero menor a 6";
+    if (!Number.isInteger(r.cantidad_dias) || r.cantidad_dias >= 14)
+        return "La cantidad de días debe ser un entero mayor a 12";
     return null;
 }
 
@@ -228,3 +231,4 @@ btnCancelar.addEventListener("click", reiniciarFormulario);
 
 cargarSelects();
 cargarReservas();
+}

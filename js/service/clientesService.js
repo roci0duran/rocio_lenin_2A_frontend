@@ -1,4 +1,4 @@
-const API_URL=""
+const API_URL="https://retoolapi.dev/al4rtY/jefefinal"
 
 
 async function procesar(resp){
@@ -25,7 +25,8 @@ async function enviar(url,opciones){
 export async function obtenerCLientes(){
     return procesar(await enviar(API_URL));
 }
-export async function obtenerCLientes(){
+
+export async function obtenerClientePorId(){
     return procesar(await enviar(`${API_URL}/${id}`));
 }
 

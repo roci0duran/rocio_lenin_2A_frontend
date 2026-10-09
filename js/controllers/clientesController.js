@@ -1,10 +1,10 @@
 import {
-    obtenerClientes,
+    obtenerCLientes,
     obtenerClientePorId,
     crearCliente,
-    actualizarCliente,
+    ActualizarCliente,
     eliminarCliente
-} from "../services/clientesService.js";
+} from "../service/clientesService.js";
 
 const formulario = document.getElementById("formCliente");
 const titulo = document.getElementById("tituloFormulario");
