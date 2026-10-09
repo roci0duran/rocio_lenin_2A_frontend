@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">AutoRent Express</a>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="index.html">Reservas</a></li>
+                <li class="nav-item"><a class="nav-link active" href="clientes.html">Clientes</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container py-4">
+        <div id="alertas"></div>
+
+        <section class="card shadow-sm mb-4">
+            <div class="card-header">
+                <h2 class="h5 mb-0" id="tituloFormulario">Registrar cliente</h2>
+            </div>
+            <div class="card-body">
+                <form id="formCliente" novalidate>
+                    <div class="mb-3">
+                        <label for="txtNombre" class="form-label">Nombre</label>
+                        <input type="text" class="form-control" id="txtNombre" maxlength="100">
+                    </div>
+                    <div class="mb-3">
+                        <label for="txtApellido" class="form-label">Apellido</label>
+                        <input type="text" class="form-control" id="txtApellido" maxlength="100">
+                    </div>
+                    <div class="mb-3">
+                        <label for="txtTelefono" class="form-label">Teléfono</label>
+                        <input type="tel" class="form-control" id="txtTelefono" maxlength="15">
+                    </div>
+                    <div class="mb-3">
+                        <label for="txtEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="txtEmail" maxlength="100">
+                    </div>
+                    <div class="mb-3">
+                        <label for="txtDireccion" class="form-label">Dirección</label>
+                        <input type="text" class="form-control" id="txtDireccion" maxlength="200">
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="btnGuardar">Guardar</button>
+                    <button type="button" class="btn btn-secondary d-none" id="btnCancelar">Cancelar</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="card shadow-sm">
+            <div class="card-header">
+                <h2 class="h5 mb-0">Listado de clientes</h2>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover mb-0">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th><th>Nombre</th><th>Apellido</th>
+                            <th>Teléfono</th><th>Email</th><th>Dirección</th><th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaClientes"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="js/controllers/clientesController.js"></script>
+</body>
+</html>

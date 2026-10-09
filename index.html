@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">AutoRent Express</a>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link active" href="index.html">Reservas</a></li>
+                <li class="nav-item"><a class="nav-link" href="clientes.html">Clientes</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main class="container py-4">
+        <div id="alertas"></div>
+
+        <section class="card shadow-sm mb-4">
+            <div class="card-header">
+                <h2 class="h5 mb-0" id="tituloFormulario">Registrar reserva</h2>
+            </div>
+            <div class="card-body">
+                <form id="formReserva" novalidate>
+                    <div class="mb-3">
+                        <label for="idCliente" class="form-label">Cliente</label>
+                        <select class="form-select" id="idCliente"></select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="idVehiculo" class="form-label">Vehículo</label>
+                        <select class="form-select" id="idVehiculo"></select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="txtNombreReserva" class="form-label">Nombre de la reserva</label>
+                        <input type="text" class="form-control" id="txtNombreReserva" maxlength="100">
+                    </div>
+                    <div class="mb-3">
+                        <label for="txtFechaReserva" class="form-label">Fecha de reserva</label>
+                        <input type="date" class="form-control" id="txtFechaReserva">
+                    </div>
+                    <div class="mb-3">
+                        <label for="txtPasajeros" class="form-label">Cantidad de pasajeros</label>
+                        <input type="number" class="form-control" id="txtPasajeros" min="1" step="1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="txtDias" class="form-label">Cantidad de días</label>
+                        <input type="number" class="form-control" id="txtDias" min="1" step="1">
+                    </div>
+                    <div class="mb-3 d-none" id="grupoEstado">
+                        <label for="txtEstado" class="form-label">Estado</label>
+                        <select class="form-select" id="txtEstado">
+                            <option value="PENDIENTE">PENDIENTE</option>
+                            <option value="CONFIRMADA">CONFIRMADA</option>
+                            <option value="CANCELADA">CANCELADA</option>
+                            <option value="FINALIZADA">FINALIZADA</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="btnGuardar">Guardar</button>
+                    <button type="button" class="btn btn-secondary d-none" id="btnCancelar">Cancelar</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="card shadow-sm">
+            <div class="card-header">
+                <h2 class="h5 mb-0">Historial de reservas</h2>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-striped table-hover mb-0">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Cliente</th><th>Vehículo</th><th>Reserva</th><th>Fecha</th>
+                            <th>Pasajeros</th><th>Días</th><th>Total a pagar</th>
+                            <th>Estado</th><th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaReservas"></tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="js/controllers/indexController.js"></script>
+</body>
+</html>
